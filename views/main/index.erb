@@ -1,79 +1,155 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  font-family: Arial;
-}
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 80%;
-  background: #aced9b;
-}
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+        body {
+          font-family: 'Lato', sans-serif;
+          background: #121212;
+        }
+        /* center the blockquote in the page */
+        .blockquote-wrapper {
+           display: flex;
+           height: 250px;
+           padding: 0 20px;
+        }
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-}
+        /* Blockquote main style */
+        .blockquote {
+            position: relative;
+            font-family: 'Barlow Condensed', sans-serif;
+            max-width: 100%;
+            margin: 80px auto;
+            align-self: center;
+        }
 
-.container {
-  padding: 2px 16px;
-}
+        /* Blockquote header */
+        .blockquote h1 {
+            font-family: 'Abril Fatface', cursive;
+            position: relative; /* for pseudos */
+            color: #e74848;
+            font-size: 2.8rem;
+            font-weight: normal;
+            line-height: 1;
+            margin: 0;
+            border: 2px solid #fff;
+            border: solid 2px;
+            border-radius:20px;
+            padding: 25px;
+        }
 
-.sidenav {
-  height: 100%;
-  width: 25%;
-  position: fixed;
-  left: 30px;
-  background: #d3eef5;
-  overflow-x: hidden;
-}
+        /* Blockquote right double quotes */
+        .blockquote h1:after {
+            content:"";
+            position: absolute;
+            border: 2px solid #e74848;
+            border-radius: 0 50px 0 0;
+            width: 60px;
+            height: 60px;
+            bottom: -62px;
+            left: 50px;
+            border-bottom: none;
+            border-left: none;
+            z-index: 3;
+        }
 
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  font-size: 20px;
-  color: #000000;
-  display: block;
-}
+        .blockquote h1:before {
+            content:"";
+            position: absolute;
+            width: 80px;
+            border: 6px solid #121212;
+            bottom: -3px;
+            left: 50px;
+            z-index: 2;
+        }
 
-.sidenav a:hover {
-  color: #000000;
-}
+        /* increase header size after 600px */
+        @media all and (min-width: 200px) {
+            .blockquote h1 {
+                font-size: 1rem;
+                line-height: 1.2;
+           }
+        }
 
-.main {
-  margin-left: 40%;
-  font-size: 20px;
-}
+        /* Blockquote subheader */
+        .blockquote h4 {
+            position: relative;
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin: 0;
+            padding-top: 15px;
+            z-index: 1;
+            margin-left:150px;
+            padding-left:12px;
+        }
 
-@media screen and (max-height: 350px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
-</head>
-<body>
+        .blockquote h4:first-letter {
+          margin-left: 12px;
+        }
 
-<div class="sidenav">
-  <form>
-    <br><input type="text" placeholder="What do you want to peep?" name="peep">
-    <input type="submit" value="submit">
-  </form>
-</div>
+        .sidenav {
+          height: 100%;
+          width: 25%;
+          position: fixed;
+          left: 30px;
+          background: #1a1a1a;
+          overflow-x: hidden;
+        }
 
-<div class="main">
-  <div class="card">
-    <div class="container">
-      <% @chitter.each do |message| %>
-      <h4>
-        <% @chitter.name %>
-      </h4>
-      <b>
-      <p><% @chitter.message %></p>
-      <% end %>
-    </div>
+        .main {
+          margin-left: 40%;
+          font-size: 20px;
+        }
+
+        input {
+          margin: 60px auto;
+          width: 90%;
+          height: 100px;
+        	border:2px solid rgba(255,255,255,.5);
+        	font-size:1.75em;
+        	padding:.85em .5em .3125em;
+        	border-radius:.25em;
+        	background:transparent;
+        	transition:all .100s;
+        }
+
+        	input:focus{
+        		outline:none;
+        		color:rgba(255,255,255,.75);
+        		border-color:rgba(255,255,255,.75);
+        	}
+
+        	&.keyup {
+        		color:white;
+        		border-color:white;
+        		text-shadow:0 0 .125em white;
+        		box-shadow:0 0 .25em white,inset 0 0 .25em white;
+        	}
+        }
+
+      </style>
+  </head>
+  <body>
+
+  <div class="sidenav">
+      <input type="text" placeholder="Say something..."/>
   </div>
-</div>
 
-</body>
+  <% 1.times do %>
+  <div class="main">
+    <div class="blockquote-wrapper">
+      <div class="blockquote">
+          <h1>
+            Lorem ipsum dolor sit amet, mel an integre apeirian, nulla inimicus omittantur te eam. Qui mediocrem deterruisset reprehendunt ea, id nec facer
+          </h1>
+        <h4>&mdash;Scooby (5 mins ago)</h4>
+      </div>
+    </div>
+
+  </div>
+  <% end %>
+
+  </body>
 </html>

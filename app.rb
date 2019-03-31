@@ -3,7 +3,6 @@ require 'sinatra'
 require './lib/chitter.rb'
 require './lib/chitter_users.rb'
 
-
 class ChitterController < Sinatra::Base
   enable :sessions
 
@@ -41,7 +40,7 @@ class ChitterController < Sinatra::Base
   end
 
   get '/main' do
-    @chitter = Chitter.checkuser(name: :name, message: :message)
+    erb :'/main/index'
   end
 
   run! if app_file == $PROGRAM_NAME
