@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.7'
+ruby '2.6.0'
 
 gem 'codeclimate'
 gem 'database_cleaner'
@@ -9,6 +9,8 @@ gem 'hound'
 gem 'rake'
 gem 'rubocop', '0.56.0'
 gem 'sinatra'
+gem 'capybara'
+gem 'bcrypt'
 
 group :test do
   gem 'rspec'
