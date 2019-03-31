@@ -24,13 +24,13 @@ class ChitterController < Sinatra::Base
 
   get '/register/securitycheck' do
     password1 = BCrypt::Password.create(params[:password1])
-    password2 = BCrypt::Password.create(params[:password2]) || nil
+    password2 = BCrypt::Password.create(params[:password2]) if params[:password2]
     if params[:username]
       redirect '/register' if password1 != password2
 
       chitter_users = ChitterUsers.new(params[:username], password1, params[:fullname], params[:email])
-      chitter_usrs.add
-      session[:chitter_id] = chitter_users.id
+      chitter_users.add
+      # session[:chitter_id] = chitter_users.id
 
     else
       Chitter.check(params[:username], password)

@@ -8,13 +8,13 @@ class ChitterUsers
   end
 
   def add
-    connection = PG.connect(dbname: 'chitter_users')
-    connection.exec("INSERT INTO chitterusers (fullname, email, username, password) VALUES(#{@fullname}, #{@email}, #{@username}, #{@password})")
+    # connection = PG.connect(dbname: "chitter_users")
+    # connection.exec("INSERT INTO chitterusers (fullname, email, username, password) VALUES(#{@fullname}, #{@email}, #{@username}, #{@password})")
   end
 
   def check(username, password)
-    connection = PG.connect(dbname: 'chitter_users')
-    
+    # connection = PG.connect(dbname: 'chitter_users')
+
   end
 
   def id(user)
